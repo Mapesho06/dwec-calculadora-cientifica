@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Científica</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- defer: el JS se ejecuta cuando el HTML ya está cargado -->
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <main class="calculadora">
+        <div class="pantalla">
+            <h1>Calculadora Científica</h1>
+            <p class="modo-angulo">Grados</p>
+            <!-- output ya avisa a los lectores de pantalla cuando cambia su contenido -->
+            <output class="resultado">0</output>
+        </div>
+
+        <!--
+            data-valor  → teclas que ESCRIBEN algo en pantalla (números y punto)
+            data-accion → teclas que HACEN algo (operaciones, borrar, igual)
+            aria-label  → nombre legible para las teclas con símbolos
+        -->
+        <div class="teclado">
+            <!-- Fila 1 -->
+            <button type="button" class="tecla tecla--funcion" data-accion="sin" aria-label="Seno">sin</button>
+            <button type="button" class="tecla tecla--funcion" data-accion="cos" aria-label="Coseno">cos</button>
+            <button type="button" class="tecla tecla--funcion" data-accion="tan" aria-label="Tangente">tan</button>
+            <button type="button" class="tecla tecla--funcion" data-accion="pi" aria-label="Pi">π</button>
+
+            <!-- Fila 2 -->
+            <button type="button" class="tecla tecla--funcion" data-accion="raiz" aria-label="Raíz cuadrada">√</button>
+            <button type="button" class="tecla tecla--funcion" data-accion="cuadrado" aria-label="Al cuadrado">x²</button>
+            <button type="button" class="tecla tecla--funcion" data-accion="potencia" aria-label="Elevado a">xʸ</button>
+            <button type="button" class="tecla tecla--funcion" data-accion="inversa" aria-label="Uno entre x">1/x</button>
+
+            <!-- Fila 3 -->
+            <button type="button" class="tecla tecla--borrar" data-accion="limpiar" aria-label="Borrar todo">AC</button>
+            <button type="button" class="tecla tecla--borrar" data-accion="borrar" aria-label="Borrar último dígito">DEL</button>
+            <button type="button" class="tecla tecla--funcion" data-accion="porcentaje" aria-label="Porcentaje">%</button>
+            <button type="button" class="tecla tecla--operador" data-accion="dividir" aria-label="Dividir">÷</button>
+
+            <!-- Fila 4 -->
+            <button type="button" class="tecla" data-valor="7">7</button>
+            <button type="button" class="tecla" data-valor="8">8</button>
+            <button type="button" class="tecla" data-valor="9">9</button>
+            <button type="button" class="tecla tecla--operador" data-accion="multiplicar" aria-label="Multiplicar">×</button>
+
+            <!-- Fila 5 -->
+            <button type="button" class="tecla" data-valor="4">4</button>
+            <button type="button" class="tecla" data-valor="5">5</button>
+            <button type="button" class="tecla" data-valor="6">6</button>
+            <button type="button" class="tecla tecla--operador" data-accion="restar" aria-label="Restar">−</button>
+
+            <!-- Fila 6 -->
+            <button type="button" class="tecla" data-valor="1">1</button>
+            <button type="button" class="tecla" data-valor="2">2</button>
+            <button type="button" class="tecla" data-valor="3">3</button>
+            <button type="button" class="tecla tecla--operador" data-accion="sumar" aria-label="Sumar">+</button>
+
+            <!-- Fila 7 -->
+            <button type="button" class="tecla tecla--funcion" data-accion="signo" aria-label="Cambiar signo">±</button>
+            <button type="button" class="tecla" data-valor="0">0</button>
+            <button type="button" class="tecla" data-valor="." aria-label="Coma decimal">.</button>
+            <button type="button" class="tecla tecla--igual" data-accion="igual" aria-label="Igual">=</button>
+        </div>
+    </main>
+</body>
+
+</html>

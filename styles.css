@@ -1,0 +1,147 @@
+/* =========================================================
+   Calculadora científica - styles.css
+   Clases que espera este CSS en el HTML:
+   - main.calculadora         → contenedor de toda la calculadora
+   - .pantalla                → zona de arriba (título, modo y resultado)
+   - .modo-angulo             → el texto "Grados"
+   - .resultado               → donde se ve el número (etiqueta output)
+   - .teclado                 → UN solo div con TODOS los botones dentro
+   - button.tecla             → todos los botones
+     + .tecla--funcion        → sin, cos, tan, π, √, x², xʸ, 1/x, %, ±
+     + .tecla--operador       → ÷ × − +
+     + .tecla--borrar         → AC y DEL
+     + .tecla--igual          → =
+   ========================================================= */
+
+/* Variables CSS: si quieres cambiar un color, solo lo tocas aquí */
+:root {
+  /* Paleta clara en azules y grises */
+  --fondo-pagina: #eef2f7;
+  --fondo-calculadora: #ffffff;
+  --borde-calculadora: #d6dee8;
+  --texto-principal: #1e293b;   /* gris azulado muy oscuro */
+  --texto-secundario: #64748b;
+  --fondo-pantalla: #e8f0fb;
+  --texto-pantalla: #1e293b;
+  --tecla-numero: #f8fafc;
+  --tecla-funcion: #e2e8f0;
+  --tecla-operador: #d4e3f7;
+  --texto-operador: #1e3a5f;
+  --tecla-borrar: #cbd5e1;
+  --tecla-igual: #2f6db5;       /* el único azul intenso: destaca la acción principal */
+  --texto-igual: #ffffff;
+  --borde-tecla: #d6dee8;
+  --foco: #2f6db5;
+  --radio: 0.5rem;
+}
+
+/* Reset mínimo: el padding y el borde cuentan dentro del ancho */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center; /* centra la calculadora en horizontal y vertical */
+  background-color: var(--fondo-pagina);
+  font-family: system-ui, sans-serif;
+}
+
+/* ---------- Contenedor ---------- */
+.calculadora {
+  width: min(100% - 2rem, 24rem); /* ocupa el ancho en móvil, máximo 24rem */
+  padding: 1.25rem;
+  background-color: var(--fondo-calculadora);
+  border: 1px solid var(--borde-calculadora);
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1.5rem rgb(30 41 59 / 0.08); /* sombra suave */
+  color: var(--texto-principal);
+}
+
+/* ---------- Pantalla ---------- */
+.pantalla h1 {
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.modo-angulo {
+  margin: 0 0 0.25rem;
+  font-size: 0.8rem;
+  text-align: right;
+  color: var(--texto-secundario);
+}
+
+.resultado {
+  display: block; /* output es inline por defecto */
+  min-height: 4.5rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: var(--fondo-pantalla);
+  color: var(--texto-pantalla);
+  border-radius: var(--radio);
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: right;
+  overflow-wrap: anywhere; /* los números muy largos saltan de línea */
+}
+
+/* ---------- Teclado (Grid) ---------- */
+.teclado {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas iguales */
+  gap: 0.5rem;
+}
+
+/* ---------- Botones ---------- */
+.tecla {
+  min-height: 3rem;
+  border: 1px solid var(--borde-tecla);
+  border-radius: var(--radio);
+  background-color: var(--tecla-numero);
+  color: var(--texto-principal);
+  font: inherit; /* los botones no heredan la fuente por defecto */
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.tecla:hover {
+  filter: brightness(0.95); /* en tonos claros, oscurecer un poco se nota mejor */
+}
+
+.tecla:active {
+  transform: scale(0.96);
+}
+
+/* Contorno visible al navegar con teclado (Tab) */
+.tecla:focus-visible {
+  outline: 3px solid var(--foco);
+  outline-offset: 2px;
+}
+
+.tecla--funcion {
+  background-color: var(--tecla-funcion);
+}
+
+.tecla--operador {
+  background-color: var(--tecla-operador);
+  color: var(--texto-operador);
+  font-weight: 700;
+}
+
+.tecla--borrar {
+  background-color: var(--tecla-borrar);
+}
+
+.tecla--igual {
+  background-color: var(--tecla-igual);
+  border-color: var(--tecla-igual);
+  color: var(--texto-igual);
+  font-weight: 700;
+}
